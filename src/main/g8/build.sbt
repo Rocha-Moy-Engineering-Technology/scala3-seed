@@ -1,5 +1,5 @@
+ThisBuild / scalaVersion := "3.2.1"
 ThisBuild / organization := "$organization$"
-ThisBuild / scalaVersion := "$scala_version$"
 
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
