@@ -12,5 +12,3 @@ This template is distributed without any warranty. See <http://creativecommons.o
 ```
 g8 Rocha-Moy-Engineering-Technology/scala3-seed.g8 --name="${PROJECT}" --force &&
 ```
-
-TODO: Project name needs to be changed from root to custom
