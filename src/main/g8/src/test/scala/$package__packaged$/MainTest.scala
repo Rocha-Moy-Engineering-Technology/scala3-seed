@@ -1,6 +1,7 @@
+import org.scalatest.funsuite.AnyFunSuite
 
-class MySuite extends munit.FunSuite {
+class cubeCalculatorTest extends AnyFunSuite {
   test("Automated MainTest") {
-    assertEquals(0,0)
+    assert(true)
   }
 }

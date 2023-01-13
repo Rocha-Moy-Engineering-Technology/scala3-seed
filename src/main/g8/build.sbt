@@ -3,10 +3,9 @@ ThisBuild / organization := "$organization$"
 
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
-lazy val root = project
+lazy val `$name;format="space,hyphen"$` = project
   .in(file("."))
   .settings(
-    name := "scala3",
     scalacOptions ++= Seq(
       "-Yexplicit-nulls",
       "-language:strictEquality",
@@ -33,7 +32,10 @@ lazy val root = project
       "-Ysafe-init"
     ),
     libraryDependencies ++= Seq(
-      "org.scalameta" %% "munit" % "latest.release" % Test
+      "org.scalatest" %% "scalatest" % "[0,1000)" % Test,
+      "org.scalacheck" %% "scalacheck" % "[0,1000)" % Test,
+      "org.scalatestplus" %% "scalacheck-1-17" % "[0,1000)" % Test,
+      "org.scala-lang.modules" %% "scala-parallel-collections" % "[0,1000)"
     )
   )
 
