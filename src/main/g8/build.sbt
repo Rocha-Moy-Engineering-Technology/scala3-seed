@@ -40,7 +40,7 @@ lazy val myLibraryDependencies = libraryDependencies ++= Seq(
 
 lazy val settings = myScalacOptions ++ myLibraryDependencies
 
-lazy val root = project
+lazy val $name;format="lower,word"$ = project
   .in(file("."))
   .settings(settings)
   .dependsOn(utils % "compile->compile;compile->test;test->compile;test->test")
