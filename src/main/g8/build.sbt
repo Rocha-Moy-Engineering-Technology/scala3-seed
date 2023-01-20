@@ -3,7 +3,7 @@ ThisBuild / organization := "$organization$"
 
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
-lazy val myScalacOptions = Seq(
+lazy val myScalacOptions = scalacOptions ++= Seq(
   "-Werror",
   "-Wunused:all",
   "-Ycheck-all-patmat",
@@ -31,19 +31,23 @@ lazy val myScalacOptions = Seq(
   "-unchecked"
 )
 
-lazy val myLibraryDependencies = Seq(
-  "org.scalatest" %% "scalatest" % "[0,1000)" % Test,
-  "org.scalacheck" %% "scalacheck" % "[0,1000)" % Test,
-  "org.scalatestplus" %% "scalacheck-1-17" % "[0,1000)" % Test,
-  "org.scala-lang.modules" %% "scala-parallel-collections" % "[0,1000)"
+lazy val myLibraryDependencies = libraryDependencies ++= Seq(
+  "org.scalatest" %% "scalatest" % "3.2.15" % Test,
+  "org.scalacheck" %% "scalacheck" % "1.17.0" % Test,
+  "org.scalatestplus" %% "scalacheck-1-17" % "3.2.15.0" % Test,
+  "org.scala-lang.modules" %% "scala-parallel-collections" % "1.0.4"
 )
 
-lazy val core = project
-  .in(file("core"))
-  .settings(
-    scalacOptions ++= myScalacOptions,
-    libraryDependencies ++= myLibraryDependencies
-  )
+lazy val settings = myScalacOptions ++ myLibraryDependencies
+
+lazy val root = project
+  .in(file("."))
+  .settings(settings)
+  .dependsOn(utils % "compile->compile;compile->test;test->compile;test->test")
+
+lazy val utils = project
+  .in(file("utils"))
+  .settings(settings)
 
 ThisBuild / watchBeforeCommand := Watch.clearScreen
 ThisBuild / watchTriggeredMessage := Watch.clearScreenOnTrigger
