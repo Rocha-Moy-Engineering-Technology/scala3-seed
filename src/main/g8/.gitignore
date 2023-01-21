@@ -1,3 +1,4 @@
+DATA
 target/
 project/project/
 project/target/
@@ -8,3 +9,4 @@ project/.bloop/
 .metals/
 .scalafmt.conf
 .vscode/
+.envrc
