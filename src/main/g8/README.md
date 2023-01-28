@@ -1,5 +1,11 @@
 # $name$
 
-Scala3-project for `$name$`.
+scala3-project: `$name$`.
 
 ## $package$
+
+## Testing
+
+```sh
+sbt test
+```
