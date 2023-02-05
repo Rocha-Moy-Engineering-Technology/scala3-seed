@@ -40,10 +40,13 @@ lazy val myLibraryDependencies = libraryDependencies ++= Seq(
 
 lazy val settings = myScalacOptions ++ myLibraryDependencies
 
+lazy val depedencyGraph = "compile->compile;compile->test;test->compile;test->test"
+
 lazy val $name;format="lower,word"$ = project
   .in(file("."))
   .settings(settings)
-  .dependsOn(utils % "compile->compile;compile->test;test->compile;test->test")
+  .dependsOn(utils % depedencyGraph)
+  .aggregate(utils)
 
 lazy val utils = project
   .in(file("utils"))
