@@ -1,4 +1,6 @@
 package $package$
 
 @main def run: Unit =
-  println("Hello world!")
+  println(msg)
+
+def msg = "Hello World!"

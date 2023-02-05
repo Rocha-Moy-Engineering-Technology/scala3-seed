@@ -1,7 +1,8 @@
 import org.scalatest.funsuite.AnyFunSuite
+import $package$.*
 
-class cubeCalculatorTest extends AnyFunSuite {
+class MainTest extends AnyFunSuite {
   test("Automated MainTest") {
-    assert(true)
+    assert(msg == "Hello World!")
   }
 }
