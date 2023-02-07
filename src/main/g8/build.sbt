@@ -46,10 +46,17 @@ lazy val $name;format="lower,word"$ = project
   .in(file("."))
   .settings(settings)
   .dependsOn(utils % depedencyGraph)
-  .aggregate(utils)
+  .dependsOn(core % depedencyGraph)
+  .aggregate(utils,core)
 
 lazy val utils = project
   .in(file("utils"))
+  .settings(settings)
+  .dependsOn(core % depedencyGraph)
+  .aggregate(core)
+
+lazy val core = project
+  .in(file("core"))
   .settings(settings)
 
 ThisBuild / watchBeforeCommand := Watch.clearScreen
