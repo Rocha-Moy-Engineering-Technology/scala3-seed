@@ -2,8 +2,8 @@ DATA
 target/
 project/project/
 project/target/
-project/metals.sbt
 project/.bloop/
+project/metals.sbt
 .bloop/
 .bsp/
 .metals/
