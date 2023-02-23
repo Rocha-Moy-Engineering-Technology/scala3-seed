@@ -1,6 +1,3 @@
-DATA
-.envrc
-.vscode/
 target/
 .bloop/
 project/project/
