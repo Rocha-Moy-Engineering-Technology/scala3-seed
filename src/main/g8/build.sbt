@@ -45,19 +45,19 @@ lazy val depedencyGraph = "compile->compile;compile->test;test->compile;test->te
 lazy val $name;format="lower,word"$ = project
   .in(file("."))
   .settings(settings)
+  .dependsOn(core % depedencyGraph)
   .dependsOn(utils % depedencyGraph)
-  .dependsOn(core % depedencyGraph)
-  .aggregate(utils,core)
-
-lazy val utils = project
-  .in(file("utils"))
-  .settings(settings)
-  .dependsOn(core % depedencyGraph)
-  .aggregate(core)
+  .aggregate(core,utils)
 
 lazy val core = project
   .in(file("core"))
-  .settings(settings)
+  .settings(settings, organization := "$organization$.$name;format="lower,word"$")
+  .dependsOn(utils % depedencyGraph)
+  .aggregate(utils)
+
+lazy val utils = project
+  .in(file("utils"))
+  .settings(settings, organization := "$organization$.$name;format="lower,word"$")
 
 ThisBuild / watchBeforeCommand := Watch.clearScreen
 ThisBuild / watchTriggeredMessage := Watch.clearScreenOnTrigger
