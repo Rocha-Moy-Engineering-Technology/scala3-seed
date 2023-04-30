@@ -45,17 +45,17 @@ lazy val depedencyGraph = "compile->compile;compile->test;test->compile;test->te
 lazy val $name;format="lower,word"$ = project
   .in(file("."))
   .settings(settings)
-  .dependsOn(core % depedencyGraph)
-  .dependsOn(utils % depedencyGraph)
-  .aggregate(core,utils)
+  .dependsOn($name;format="lower,word"$_core % depedencyGraph)
+  .dependsOn($name;format="lower,word"$_utils % depedencyGraph)
+  .aggregate($name;format="lower,word"$_core,$name;format="lower,word"$_utils)
 
-lazy val core = project
+lazy val $name;format="lower,word"$_core = project
   .in(file("core"))
   .settings(settings, organization := "$organization$.$name;format="lower,word"$")
-  .dependsOn(utils % depedencyGraph)
-  .aggregate(utils)
+  .dependsOn($name;format="lower,word"$_utils % depedencyGraph)
+  .aggregate($name;format="lower,word"$_utils)
 
-lazy val utils = project
+lazy val $name;format="lower,word"$_utils = project
   .in(file("utils"))
   .settings(settings, organization := "$organization$.$name;format="lower,word"$")
 
