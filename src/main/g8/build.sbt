@@ -45,19 +45,18 @@ lazy val depedencyGraph = "compile->compile;compile->test;test->compile;test->te
 lazy val $name;format="lower,word"$ = project
   .in(file("."))
   .settings(settings)
-  .dependsOn($name;format="lower,word"$_core % depedencyGraph)
   .dependsOn($name;format="lower,word"$_utils % depedencyGraph)
-  .aggregate($name;format="lower,word"$_core,$name;format="lower,word"$_utils)
-
-lazy val $name;format="lower,word"$_core = project
-  .in(file("core"))
-  .settings(settings, organization := "$organization$.$name;format="lower,word"$")
-  .dependsOn($name;format="lower,word"$_utils % depedencyGraph)
-  .aggregate($name;format="lower,word"$_utils)
+  .dependsOn(sccore % depedencyGraph)
+  .aggregate($name;format="lower,word"$_utils,sccore)
 
 lazy val $name;format="lower,word"$_utils = project
   .in(file("utils"))
   .settings(settings, organization := "$organization$.$name;format="lower,word"$")
+  .dependsOn(sccore % depedencyGraph)
+  .aggregate(sccore)
+
+lazy val sccore = RootProject(file("../sccore"))
+
 
 ThisBuild / watchBeforeCommand := Watch.clearScreen
 ThisBuild / watchTriggeredMessage := Watch.clearScreenOnTrigger
