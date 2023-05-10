@@ -1,7 +1,7 @@
 package $package$
-import com.rmet.sccore.Sccore.*
+import com.rmet.$base$.$base;format="Camel"$.*
 
 object $name;format="Camel"$
 
 @main def _unsafe$name;format="Camel"$Main: Unit =
-  throw RuntimeException(s"UTILS EMPTY \${Source.fileName} CANNOT BE RUN.")
+  throw RuntimeException(s"$name;format="Camel"$ \${Source.fileName} CANNOT BE RUN.")

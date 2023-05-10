@@ -31,12 +31,7 @@ lazy val myScalacOptions = scalacOptions ++= Seq(
   "-unchecked"
 )
 
-lazy val myLibraryDependencies = libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest" % "3.2.15" % Test,
-  "org.scalacheck" %% "scalacheck" % "1.17.0" % Test,
-  "org.scalatestplus" %% "scalacheck-1-17" % "3.2.15.0" % Test,
-  "org.scala-lang.modules" %% "scala-parallel-collections" % "1.0.4"
-)
+lazy val myLibraryDependencies = libraryDependencies ++= Seq()
 
 lazy val settings = myScalacOptions ++ myLibraryDependencies
 
@@ -55,7 +50,7 @@ lazy val $name;format="lower,word"$_utils = project
   .dependsOn(sccore % depedencyGraph)
   .aggregate(sccore)
 
-lazy val sccore = RootProject(file("../sccore"))
+lazy val sccore = RootProject(file("../$base$"))
 
 
 ThisBuild / watchBeforeCommand := Watch.clearScreen
