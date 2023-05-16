@@ -27,6 +27,7 @@ lazy val myScalacOptions = scalacOptions ++= Seq(
   "-indent",
   "-language:higherKinds",
   "-language:strictEquality",
+  "-language:implicitConversions",
   "-new-syntax",
   "-unchecked"
 )

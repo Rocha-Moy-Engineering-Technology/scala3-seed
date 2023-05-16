@@ -1,5 +1,5 @@
 package $package$
-import com.rmet.$base$.$base;format="Camel"$.*
+import com.rmet.$base$.$base;format="Camel"$.{given,*}
 
 object $name;format="Camel"$
 
