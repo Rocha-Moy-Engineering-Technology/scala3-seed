@@ -51,7 +51,7 @@ lazy val $name;format="lower,word"$_utils = project
   .dependsOn(sccore % depedencyGraph)
   .aggregate(sccore)
 
-lazy val sccore = RootProject(file("../$base$"))
+lazy val $base$ = RootProject(file("../$base$"))
 
 
 ThisBuild / watchBeforeCommand := Watch.clearScreen
