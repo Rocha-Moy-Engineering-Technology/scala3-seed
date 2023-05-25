@@ -1,4 +1,4 @@
-ThisBuild / scalaVersion := "3.2.2"
+ThisBuild / scalaVersion := "3.3.0-RC6"
 ThisBuild / organization := "$organization$"
 
 Global / onChangedBuildSource := ReloadOnSourceChanges
@@ -42,14 +42,14 @@ lazy val $name;format="lower,word"$ = project
   .in(file("."))
   .settings(settings)
   .dependsOn($name;format="lower,word"$_utils % depedencyGraph)
-  .dependsOn(sccore % depedencyGraph)
-  .aggregate($name;format="lower,word"$_utils,sccore)
+  .dependsOn($base$ % depedencyGraph)
+  .aggregate($name;format="lower,word"$_utils,$base$)
 
 lazy val $name;format="lower,word"$_utils = project
   .in(file("utils"))
   .settings(settings, organization := "$organization$.$name;format="lower,word"$")
-  .dependsOn(sccore % depedencyGraph)
-  .aggregate(sccore)
+  .dependsOn($base$ % depedencyGraph)
+  .aggregate($base$)
 
 lazy val $base$ = RootProject(file("../$base$"))
 

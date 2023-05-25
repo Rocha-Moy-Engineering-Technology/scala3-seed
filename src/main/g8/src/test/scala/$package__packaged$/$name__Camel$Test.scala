@@ -7,7 +7,7 @@ import com.rmet.$base$.$base;format="Camel"$.{given, *}
 
 class $name;format="Camel"$Test extends AnyFunSuite with Matchers {
   validate$name;format="Camel"$Imports
-  validateScbase;format="Camel"$Imports
+  validateScbuildImports
   test("Automated $name;format="Camel"$Test") {
     assert(true)
   }
