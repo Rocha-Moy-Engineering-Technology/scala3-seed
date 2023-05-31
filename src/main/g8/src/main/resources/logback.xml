@@ -1,0 +1,25 @@
+<configuration>
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>./logs/default.log</file>
+    <encoder>
+      <pattern>$name$ %date %level [%thread] %logger{10} [%file:%line] '%class.%method': %msg%n</pattern>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <fileNamePattern>./logs/default-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+      <maxFileSize>100MB</maxFileSize>
+      <maxHistory>30</maxHistory>
+      <totalSizeCap>1GB</totalSizeCap>
+    </rollingPolicy>
+  </appender>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>$name$ %date %level [%thread] %logger{10} [%file:%line] '%class.%method': %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <root level="info">
+    <appender-ref ref="STDOUT" />
+    <appender-ref ref="FILE" />
+  </root>
+</configuration>
