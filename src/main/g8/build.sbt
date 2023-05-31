@@ -1,4 +1,4 @@
-ThisBuild / scalaVersion := "3.3.0-RC6"
+ThisBuild / scalaVersion := "3.3.0"
 ThisBuild / organization := "$organization$"
 
 Global / onChangedBuildSource := ReloadOnSourceChanges
