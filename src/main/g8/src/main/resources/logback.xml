@@ -1,6 +1,6 @@
 <configuration>
   <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <file>./logs/default.log</file>
+    <file>${DATA_$name;format="upper"$}/logs/default.log</file>
     <encoder>
       <pattern>$name$ %date %level [%thread] %logger{10} [%file:%line] '%class.%method': %msg%n</pattern>
     </encoder>
@@ -22,4 +22,6 @@
     <appender-ref ref="STDOUT" />
     <appender-ref ref="FILE" />
   </root>
+
+  <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
 </configuration>
