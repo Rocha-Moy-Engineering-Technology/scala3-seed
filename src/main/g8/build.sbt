@@ -10,7 +10,7 @@ lazy val myScalacOptions = scalacOptions ++= Seq(
   "-Ycheck-mods",
   "-Ycheck-reentrant",
   "-Yexplain-lowlevel",
-  "-Yexplicit-nulls",
+  // "-Yexplicit-nulls",
   "-Ykind-projector:underscores",
   "-Yno-deep-subtypes",
   "-Yno-double-bindings",
