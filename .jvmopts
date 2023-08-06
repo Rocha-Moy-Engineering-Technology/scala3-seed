@@ -1,2 +1,3 @@
 -Xms256m
+-Xss256m
 -XX:MaxRAMPercentage=80
