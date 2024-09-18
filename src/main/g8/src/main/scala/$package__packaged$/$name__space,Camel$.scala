@@ -9,4 +9,4 @@ object $name;format="space,Camel"$ {
 }
 
 @main def _unsafe$name;format="space,Camel"$Main: Unit =
-  throw RuntimeException(s"$name;format="space,Camel"$ \${Source.filePath} CANNOT BE RUN.")
+  throw RuntimeException(s"$name;format="space,Camel"$ \${Source().filePath} CANNOT BE RUN.")
